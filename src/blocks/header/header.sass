@@ -1,0 +1,149 @@
+.header
+  min-height: 60px
+  display: flex
+  align-items: center
+  padding: 20px 0
+  z-index: 3
+  transition: 0.7s
+  background-color: $bg
+  @media (max-width: $width-mobile)
+    padding: 8px 0
+
+  //&.js-scroll
+  //  background-color: $bg
+
+
+  &__container
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 100%
+    gap: 32px
+    z-index: 3
+
+    & > .header__button
+      @include tablet
+        display: none
+
+
+
+  &__logo
+    position: relative
+    transition: $transition
+    flex: 0 0 260px
+    display: flex
+    align-items: center
+    margin-right: auto
+    z-index: 2
+    @include tablet
+      flex: 0 0 200px
+    @include mobile
+      flex: 0 0 130px
+
+  &__logo svg
+    width: 260px
+    @include tablet
+      width: 200px
+    @include mobile
+      width: 130px
+
+  &-nav
+    display: none
+    @include tablet
+      display: block
+      top: 0
+      left: 0
+      position: fixed
+      width: 100%
+      background-color: $bg
+      transform: translateY(-100%)
+      opacity: 0
+      visibility: hidden
+      transition: $transition
+      padding: 120px 16px 32px 16px
+      @media (max-width: 360px)
+        padding-top: 56px
+      &.js-mobile-nav-open
+        transform: translateY(0)
+        opacity: 1
+        visibility: visible
+        z-index: 1
+        min-height: 100vh
+      &.js-mobile-nav-open ~ .header__burger .header__burger-line-1
+        transform: rotate(45deg)
+      &.js-mobile-nav-open ~ .header__burger .header__burger-line-2
+        transform: scale(0)
+      &.js-mobile-nav-open ~ .header__burger .header__burger-line-3
+        transform: rotate(-45deg)
+
+    .header__button
+      margin: 64px auto 0
+
+    &__list
+      @include tablet
+      display: flex
+      align-items: center
+      gap: 24px
+      flex-direction: column
+      @media (max-width: 360px)
+        gap: 16px
+
+    &__link
+      white-space: nowrap
+      transition: $transition
+
+
+  &__contacts
+    display: flex
+    gap: 12px
+    align-items: center
+    flex-wrap: wrap
+    justify-content: center
+    &-link--email
+      @media (max-width: 1200px)
+        width: 100%
+        text-align: center
+
+
+
+  &__phone
+    display: flex
+    flex-direction: column
+    gap: 4px
+    text-align: center
+    a
+      @include fontSize(14, 24)
+      font-weight: 700
+      white-space: nowrap
+    span
+      font-size: 14px
+      @include fontSize(8, 14)
+      color: #C1C1C1
+      white-space: nowrap
+
+
+  &__burger
+    display: none
+    @include tablet
+      position: relative
+      z-index: 100
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      width: 20px
+      height: 16px
+      flex: 0 0 20px
+      &-line
+        display: block
+        background-color: tomato
+        width: 100%
+        height: 2px
+        border-radius: 10px
+      &-line-1
+        transform-origin: 0 0
+        transition: transform 0.4s ease-in-out
+      &-line-2
+        transition: transform 0.2s ease-in-out
+      &-line-3
+        transform-origin: 0 100%
+        transition: transform 0.4s ease-in-out

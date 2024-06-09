@@ -1,0 +1,45 @@
+header.header
+    .container.header__container
+        a.header__logo(href='index.html')
+            include ../../img/logo.svg
+
+        nav.header__nav.header-nav
+            ul.header-nav__list
+                li.header-nav__item
+                    a.header-nav__link(href='##') Обо мне
+                li.header-nav__item
+                    a.header-nav__link(href='##') Гарантии
+                li.header-nav__item
+                    a.header-nav__link(href='##') Портфолио
+                li.header-nav__item
+                    a.header-nav__link(href='##') Отзывы
+                li.header-nav__item
+                    a.header-nav__link(href='##') Преимущества
+                li.header-nav__item
+                    a.header-nav__link(href='##') Стоимость
+                li.header-nav__item
+                    a.header-nav__link(href='##') Этапы работы
+
+            button.header__button.button.button--accent Консультация
+
+
+        .header__contacts
+            a.header__contacts-link.header__contacts-link--email(href="mailto:creatiwing@ya.ru" target="_blank") Сreatiwing@ya.ru
+            a.header__contacts-link.header__contacts-link--wa(href="" target="_blank")
+                include ../../img/icons/whatsapp.svg
+            a.header__contacts-link.header__contacts-link--tg(href="" target="_blank")
+                include ../../img/icons/telegram.svg
+            a.header__contacts-link.header__contacts-link--vk(href="https://t.me/AleksChuykov" target="_blank")
+                include ../../img/icons/vk.svg
+
+        .header__phone
+            a(href="tel:+79135134669") +7 (913) 513-46-69
+            span Звоните с 9:00 - 18:00 по МСК
+
+        button.header__button.button.button--accent Консультация
+
+
+        button(type="button").header__burger
+            span.header__burger-line.header__burger-line-1
+            span.header__burger-line.header__burger-line-2
+            span.header__burger-line.header__burger-line-3

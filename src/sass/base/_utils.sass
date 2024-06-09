@@ -1,0 +1,94 @@
+.hidden
+  display: none !important
+
+.visually-hidden
+  position: absolute
+  width: 1px
+  height: 1px
+  margin: -1px
+  border: 0
+  padding: 0
+  white-space: nowrap
+  clip-path: inset(100%)
+  clip: rect(0 0 0 0)
+  overflow: hidden
+
+section
+  scroll-margin: 130px
+  @media (max-width: $width-mobile)
+    scroll-margin: 80px
+
+
+.title-section
+  @include fontSize(24, 40)
+  margin-bottom: 48px
+  font-weight: 700
+  text-align: center
+  color: $darkgrey
+  text-wrap: balance
+  @media (max-width: $width-mobile)
+    margin-bottom: 32px
+  &.title-section--light
+    color: $white
+
+.flex-center
+  display: flex
+  align-items: center
+  justify-content: center
+
+
+.button
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  font-weight: 400
+  padding: 14px 44px
+  min-height: 60px
+  transition: $transition
+  line-height: 1
+  width: fit-content
+  font-size: 16px
+  border-radius: 10px
+  user-select: none
+  overflow: hidden
+  white-space: nowrap
+  color: $white
+  &.button--accent
+    background-color: $accent
+  &.button--yellow
+    background-color: $yellow
+  &.button--outline
+    border: 1px solid currentColor
+
+.color-yellow
+  color: $yellow
+
+.color-accent
+  color: $accent
+
+.dc-underline
+  text-decoration: underline
+
+.fw-700
+  font-weight: 700
+
+
+
+
+.scroll-margin
+  scroll-margin: 120px
+  @media (max-width: $width-mobile)
+    scroll-margin: 70px
+
+.desktop-hidden
+  @media (min-width: $width-mobile)
+    display: none
+
+.mobile-hidden
+  @media (max-width: $width-mobile)
+    display: none
+
+.tablet-hidden
+  @media (min-width: $width-tablet)
+    display: none

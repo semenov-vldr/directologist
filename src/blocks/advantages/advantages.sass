@@ -1,0 +1,39 @@
+.advantages
+  color: $darkgrey
+
+  &__list
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 48px 20px
+    @include tablet
+      grid-template-columns: 1fr
+      grid-gap: 40px
+
+  &__item
+
+    &-icon
+      float: left
+      vertical-align: center
+      padding-right: 20px
+      width: 120px
+      @include tablet
+        width: 80px
+      @include mobile
+        width: 60px
+        padding-right: 12px
+
+    &-title
+      font-weight: 700
+      @include fontSize(18, 24)
+      margin-bottom: 12px
+      @include mobile
+        margin-bottom: 4px
+    &-text
+      @include fontSize(14, 18)
+      padding-left: 120px
+      @include tablet
+        padding-left: 80px
+      @include mobile
+        padding-left: 60px
+
+
