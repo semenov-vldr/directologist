@@ -21,7 +21,7 @@ section
 
 .title-section
   @include fontSize(24, 40)
-  margin-bottom: 48px
+  margin-bottom: 40px
   font-weight: 700
   text-align: center
   color: $darkgrey
@@ -48,19 +48,26 @@ section
   transition: $transition
   line-height: 1
   width: fit-content
-  font-size: 16px
+  font-size: 20px
   border-radius: 10px
   user-select: none
   overflow: hidden
   white-space: nowrap
   color: $white
+  @media (max-width: $width-mobile)
+    font-size: 18px
+    padding: 14px 24px
   img
     display: none
   &.button--accent
     background-color: $accent
+    &:hover
+      color: $accent
+      background-color: $white
   &.button--yellow
     background-color: $yellow
-
+    &:hover
+      outline: 1px solid #fff
   &.button--outline
     border: 1px solid currentColor
 
