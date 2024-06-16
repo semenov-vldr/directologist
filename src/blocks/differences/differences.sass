@@ -1,0 +1,35 @@
+.differences
+  color: $darkgrey
+
+  &__container
+    display: grid
+    grid-template-columns: 0.35fr 0.55fr
+    grid-gap: 24px
+    @include tablet
+      grid-template-columns: 1fr
+
+  &__img
+    width: 100%
+    max-width: 350px
+
+  &__title
+    text-align: left
+    @include tablet
+      text-align: center
+
+  &__list
+    display: flex
+    flex-direction: column
+    gap: 16px
+
+  &__item
+    display: flex
+    flex-direction: column
+    gap: 12px
+
+    &-title
+      @include fontSize(18, 24)
+      font-weight: 600
+
+    &-text
+      @include fontSize(12, 18)

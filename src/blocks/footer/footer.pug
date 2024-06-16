@@ -1,5 +1,60 @@
-footer.footer#footer
+footer.footer
     .footer__container.container
-        h1 FOOTER
+
+        address.footer__contacts
+            a.footer__logo(href='index.html')
+                img(src="./assets/img/logo.svg")
+
+            ul.footer__contacts-list
+
+                li.footer__contacts-item
+                    span.footer__contacts-item-caption Телефон:
+                    a.footer__contacts-item-value(href="tel:+79135134669") +7 (913) 513-46-69
+
+                li.footer__contacts-item
+                    span.footer__contacts-item-caption Почта:
+                    a.footer__contacts-item-value(href="mailto:creatiwing@ya.ru") Creatiwing@ya.ru
+
+
+                li.footer__contacts-item
+                    span.footer__contacts-item-caption Мессенеджеры:
+                    .footer__social
+                        a(href="" target="_blank")
+                            include ../../img/icons/whatsapp.svg
+                        a(href="https://t.me/AleksChuykov" target="_blank")
+                            include ../../img/icons/telegram.svg
+                        a(href="" target="_blank")
+                            include ../../img/icons/vk.svg
+
+                li.footer__contacts-item
+                    span.footer__contacts-item-caption Часы работы:
+                    span.footer__contacts-item-value с 08:00 до 18:00
+
+
+        .footer__feedback
+            h3.footer__feedback-title Еще остались вопросы?
+            span.footer__feedback-subtitle Заполните форму, и я с Вами свяжусь в ближайшее время
+
+            form.footer__feedback-form.footer__form
+                input(type="text" placeholder="Ваше имя" maxlength="20")
+                input(type="text" placeholder="Ваш номер телефона" data-tel-input)
+                button.button.button--accent(type="submit") Связаться с мной
+
+        .footer__copyright
+            span Все права защищены
+            span © 2022-2024 - эксперт по <br> контекстной рекламе
+            a(href="" target="_blank") Политика конфидециальности
+
+
+
+
+
+
+
+
+
+
+
+
 
 //include ../loader/loader
