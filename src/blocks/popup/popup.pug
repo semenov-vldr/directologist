@@ -1,0 +1,25 @@
+.popup#popup
+    .popup__container
+        button.popup__close X
+        .popup__header
+            h2.popup__title Оставить заявку на настройку Яндекс Директ
+            span.popup__subtitle Выберете способ связи:
+
+        .popup__connection
+            button.popup__connection-item(type="button") E-mail
+            button.popup__connection-item.js-active(type="button") Whatsapp
+            button.popup__connection-item(type="button") Telegram
+
+        from.popup__form.popup-form
+            input.popup-form__input(type="text" placeholder="Ваше имя" maxlength="20")
+            input.popup-form__input(type="text" placeholder="Ваш номер телефона" data-tel-input)
+            button.button.button--accent(type="submit") Оставить заявку
+
+        .popup__contacts
+            span Или напишите:
+            include ../social/social
+
+
+
+
+

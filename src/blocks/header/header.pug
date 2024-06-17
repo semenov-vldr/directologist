@@ -25,18 +25,13 @@ header.header
 
         .header__contacts(data-da=".hero__content, 900, last")
             a.header__contacts-link.header__contacts-link--email(href="mailto:creatiwing@ya.ru" target="_blank") Сreatiwing@ya.ru
-            a.header__contacts-link.header__contacts-link--wa(href="" target="_blank")
-                include ../../img/icons/whatsapp.svg
-            a.header__contacts-link.header__contacts-link--tg(href="https://t.me/AleksChuykov" target="_blank")
-                include ../../img/icons/telegram.svg
-            a.header__contacts-link.header__contacts-link--vk(href="" target="_blank")
-                include ../../img/icons/vk.svg
+            include ../social/social
 
         .header__phone
             a(href="tel:+79135134669") +7 (913) 513-46-69
             span Звоните с 9:00 - 18:00 по МСК
 
-        button.header__button.button.button--accent Консультация
+        button.header__button.button.button--accent.popup-link(data-popup-title="Проконсультироваться по настройки или ведению Яндекс Директ") Консультация
 
 
         button(type="button").header__burger

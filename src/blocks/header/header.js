@@ -3,7 +3,7 @@ function mobileNav () {
   if (!header) return;
   const nav = header.querySelector(".header__nav");
   const burger = header.querySelector(".header__burger");
-  const navLinks = nav.querySelectorAll(".header-nav__link");
+  const navLinks = nav.querySelectorAll(".header-nav__link, .header__button");
 
   function closeMenu () {
     nav.classList.remove("js-mobile-nav-open");

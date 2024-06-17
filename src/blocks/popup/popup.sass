@@ -1,0 +1,120 @@
+.popup
+  position: fixed
+  width: 100%
+  height: 100%
+  z-index: 100
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  display: flex
+  align-items: center
+  justify-content: center
+  color: $white
+  overflow-y: auto
+  transition: $transition
+  background-color: rgba($white, 0.7)
+  opacity: 0
+  visibility: hidden
+  padding: 32px 16px
+  &.js-popup-open
+    opacity: 1
+    visibility: visible
+
+  &__container
+    position: relative
+    padding: 54px 32px 32px
+    background-color: #1B2131
+    max-width: 500px
+    width: 100%
+    margin: auto
+    border-radius: 10px
+    display: flex
+    flex-direction: column
+    gap: 24px
+    @include mobile
+      gap: 16px
+      padding: 32px 20px 24px
+
+  &__close
+    position: absolute
+    top: 24px
+    right: 32px
+    @include mobile
+      top: 16px
+      min-height: 20px
+
+  &__title
+    @include fontSize(18, 24)
+    font-weight: 500
+    margin-bottom: 12px
+
+  &__subtitle
+    font-size: 18px
+    color: #C1C1C1
+    @include mobile
+      font-size: 16px
+
+  &__connection
+    display: flex
+    align-items: center
+    width: 100%
+
+  &__connection-item
+    font-size: 14px
+    text-align: center
+    min-height: 38px
+    padding: 4px 16px
+    border: 1px solid #333A4A
+    width: 100%
+    transition: $transition
+    &.js-active
+      background-color: $yellow
+      border-color: $yellow
+    &:hover
+      border-color: $yellow
+    @include mobile
+      font-size: 10px
+      min-height: 35px
+
+  &-form
+    display: flex
+    flex-direction: column
+    gap: 20px
+    width: 100%
+
+    input
+      width: 100%
+      background-color: $white
+      min-height: 60px
+      padding: 4px 20px
+      border-radius: 10px
+      color: #C1C1C1
+      font-size: 18px
+      &::placeholder
+        color: #C1C1C1
+      @include mobile
+        min-height: 50px
+        font-size: 16px
+
+    button
+      margin-top: 5px
+      width: 100%
+
+  &__contacts
+    display: flex
+    flex-wrap: wrap
+    gap: 12px
+    align-items: center
+    margin: 0 auto
+    span
+      color: #C1C1C1
+      font-size: 18px
+      @include mobile
+        font-size: 14px
+
+
+
+
+
+
