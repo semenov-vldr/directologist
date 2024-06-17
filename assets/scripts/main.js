@@ -425,7 +425,7 @@ function mobileNav() {
   if (!header) return;
   var nav = header.querySelector(".header__nav");
   var burger = header.querySelector(".header__burger");
-  var navLinks = nav.querySelectorAll(".header-nav__link");
+  var navLinks = nav.querySelectorAll(".header-nav__link, .header__button");
   function closeMenu() {
     nav.classList.remove("js-mobile-nav-open");
     unblockScrollBody();
@@ -462,6 +462,41 @@ function hideLoader() {
 }
 ;
 window.addEventListener('load', hideLoader);
+"use strict";
+
+var popup = document.querySelector("#popup");
+if (popup) {
+  var closePopup = function closePopup() {
+    popup.classList.remove("js-popup-open");
+    unblockScrollBody();
+  };
+  // Tabs connection
+  var popupConnectionItems = popup.querySelectorAll(".popup__connection .popup__connection-item");
+  popupConnectionItems.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      popupConnectionItems.forEach(function (btn) {
+        return btn.classList.remove("js-active");
+      });
+      btn.classList.add("js-active");
+    });
+  });
+  var popupLinks = document.querySelectorAll(".popup-link");
+  var popupTitle = popup.querySelector(".popup__title");
+  var popupClose = popup.querySelector(".popup__close");
+  popupLinks.forEach(function (popupLink) {
+    popupLink.addEventListener("click", function (evt) {
+      popupTitle.textContent = popupLink.dataset.popupTitle;
+      popup.classList.add("js-popup-open");
+      blockScrollBody();
+    });
+  });
+  popupClose.addEventListener("click", closePopup);
+  document.addEventListener("click", function (evt) {
+    if (evt.target === popup) {
+      closePopup();
+    }
+  });
+}
 "use strict";
 
 var reviewsSlider = document.querySelector(".reviews__slider");
