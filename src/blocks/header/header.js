@@ -1,8 +1,9 @@
 function mobileNav () {
   const header = document.querySelector("header.header");
-  if (!header) return;
-  const nav = header.querySelector(".header__nav");
   const burger = header.querySelector(".header__burger");
+  if (!header || !burger) return;
+  const nav = header.querySelector(".header__nav");
+
   const navLinks = nav.querySelectorAll(".header-nav__link, .header__button");
 
   function closeMenu () {

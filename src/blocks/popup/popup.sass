@@ -13,7 +13,7 @@
   color: $white
   overflow-y: auto
   transition: $transition
-  background-color: rgba($white, 0.7)
+  background-color: rgba(#000, 0.8)
   opacity: 0
   visibility: hidden
   padding: 32px 16px
@@ -40,11 +40,14 @@
     position: absolute
     top: 24px
     right: 32px
+    img
+      width: 32px
     @include mobile
       top: 16px
-      min-height: 20px
+      right: 20px
 
   &__title
+    width: 85%
     @include fontSize(18, 24)
     font-weight: 500
     margin-bottom: 12px
@@ -89,7 +92,7 @@
       min-height: 60px
       padding: 4px 20px
       border-radius: 10px
-      color: #C1C1C1
+      color: $darkgrey
       font-size: 18px
       &::placeholder
         color: #C1C1C1

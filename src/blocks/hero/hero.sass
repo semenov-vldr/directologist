@@ -1,10 +1,14 @@
 .hero
-  background-color: $bg
-  padding: 64px 0 32px
+  padding: 130px 0 32px
+  min-height: 100vh
+  @include tablet
+    padding-top: 100px
+  @include mobile
+    padding-top: 65px
 
   &__container
     display: grid
-    grid-template-columns: 0.6fr 0.4fr
+    grid-template-columns: 0.65fr 0.35fr
     grid-gap: 80px
     justify-content: space-between
     @include tablet
@@ -18,11 +22,14 @@
   &__title
     font-weight: 700
     @include fontSize(26, 48)
+    text-wrap: balance
+    letter-spacing: 0.01em
 
   &__desc
     font-size: 24px
     @include fontSize(18, 24)
     color: #c1c1c1
+    text-wrap: balance
     span
       color: $white
       font-size: 26px
@@ -56,6 +63,8 @@
     display: flex
     gap: 32px
     flex-wrap: wrap
+    .button
+      min-height: 75px
     @media (max-width: 480px)
       gap: 20px
       & > *

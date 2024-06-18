@@ -20,7 +20,7 @@ header.header
                 li.header-nav__item
                     a.header-nav__link(href='##') Этапы работы
 
-            button.header__button.button.button--accent Консультация
+            button.header__button.button.button--accent.popup-link(data-popup-title="Проконсультироваться по настройки или ведению Яндекс Директ") Консультация
 
 
         .header__contacts(data-da=".hero__content, 900, last")
@@ -28,13 +28,13 @@ header.header
             include ../social/social
 
         .header__phone
-            a(href="tel:+79135134669") +7 (913) 513-46-69
+            a.hover-link(href="tel:+79135134669") +7 (913) 513-46-69
             span Звоните с 9:00 - 18:00 по МСК
 
         button.header__button.button.button--accent.popup-link(data-popup-title="Проконсультироваться по настройки или ведению Яндекс Директ") Консультация
 
 
-        button(type="button").header__burger
-            span.header__burger-line.header__burger-line-1
-            span.header__burger-line.header__burger-line-2
-            span.header__burger-line.header__burger-line-3
+        //button(type="button").header__burger
+        //    span.header__burger-line.header__burger-line-1
+        //    span.header__burger-line.header__burger-line-2
+        //    span.header__burger-line.header__burger-line-3
