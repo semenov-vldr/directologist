@@ -422,9 +422,9 @@ if (faq) {
 
 function mobileNav() {
   var header = document.querySelector("header.header");
-  if (!header) return;
-  var nav = header.querySelector(".header__nav");
   var burger = header.querySelector(".header__burger");
+  if (!header || !burger) return;
+  var nav = header.querySelector(".header__nav");
   var navLinks = nav.querySelectorAll(".header-nav__link, .header__button");
   function closeMenu() {
     nav.classList.remove("js-mobile-nav-open");
@@ -470,6 +470,9 @@ if (popup) {
     popup.classList.remove("js-popup-open");
     unblockScrollBody();
   };
+  var phoneInput = popup.querySelector('.popup-form__input--phone');
+  var emailInput = popup.querySelector('.popup-form__input--email');
+
   // Tabs connection
   var popupConnectionItems = popup.querySelectorAll(".popup__connection .popup__connection-item");
   popupConnectionItems.forEach(function (btn) {
@@ -478,6 +481,13 @@ if (popup) {
         return btn.classList.remove("js-active");
       });
       btn.classList.add("js-active");
+      if (btn.classList.contains("popup__connection-item--email")) {
+        phoneInput.classList.add("hidden");
+        emailInput.classList.remove("hidden");
+      } else {
+        phoneInput.classList.remove("hidden");
+        emailInput.classList.add("hidden");
+      }
     });
   });
   var popupLinks = document.querySelectorAll(".popup-link");
