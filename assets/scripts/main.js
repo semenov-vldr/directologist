@@ -1,10 +1,9 @@
 "use strict";
 
 // Отправка данных формы в Телеграм
-var TOKEN = "6388509099:AAFIQyVlZ4MapEiXhH2vQJh8CyZFgFoJ_mA";
-var CHAT_ID = "-1002008090284";
+var TOKEN = "7430554237:AAHgWfUwpVxzQ3NqPSoeYh9dNWBlSA4gLtQ";
+var CHAT_ID = "-1002234427330";
 var URL_API = "https://api.telegram.org/bot".concat(TOKEN, "/sendMessage");
-var URL_API_DOC = "https://api.telegram.org/bot".concat(TOKEN, "/sendDocument");
 var forms = document.querySelectorAll("form.form");
 if (forms) {
   forms.forEach(function (form) {
@@ -13,73 +12,34 @@ if (forms) {
 }
 function sendMessageTelegram(evt) {
   evt.preventDefault();
-  var typeConnection = this.querySelector(".form__connection-fieldset input[type='radio']:checked");
-  var successFormMessage = this.querySelector('.form__message--success');
-  var errorFormMessage = this.querySelector('.form__message--error');
-  var quiz = this.closest("#quiz");
-  function formSuccess() {
-    successFormMessage.classList.add('js-message-active');
-    quiz && setTimeout(function () {
-      return location.reload();
-    }, 3000);
+  var titlePopup;
+  var selectConnection;
+  if (evt.target.classList.contains("popup__form")) {
+    titlePopup = evt.target.closest(".popup").querySelector(".popup__title").textContent;
+    selectConnection = evt.target.closest(".popup").querySelector(".popup__connection-item.js-active").textContent;
   }
-  function formError() {
-    errorFormMessage.classList.add('js-message-active');
-    quiz && setTimeout(function () {
-      return location.reload();
-    }, 3000);
-  }
-  var message = "<b>\u0417\u0430\u044F\u0432\u043A\u0430 \u0414\u0438\u0437\u0430\u0439\u043D \u0418\u043D\u0442\u0435\u0440\u044C\u0435\u0440\u0430</b>\n";
+  var titleForm = titlePopup || "Остались вопросы";
+  var inputPhone = evt.target.querySelector("input[name='phone']");
+  var inputEmail = evt.target.querySelector("input[name='email']");
+  var message = "<b>".concat(titleForm, "</b>\n");
   message += "<b>\u0418\u043C\u044F: ".concat(this.name.value, " </b>\n");
-  message += "<b>\u0422\u0435\u043B\u0435\u0444\u043E\u043D: ".concat(this.tel.value, " </b>\n");
-  message += "<b>\u0421\u043F\u043E\u0441\u043E\u0431 \u0441\u0432\u044F\u0437\u0438: ".concat(typeConnection.value, " </b>\n");
-
-  // Если форма в квизе
-  if (quiz) {
-    var areaField = quiz.querySelector(".quiz-step-2__range-field");
-    var checkedRoomType = quiz.querySelector(".quiz__step-1 fieldset input[type='radio']:checked");
-    var checkedBudget = quiz.querySelector(".quiz__step-3 fieldset input[type='radio']:checked");
-    var checkedStyleRoom = quiz.querySelector(".quiz__step-4 fieldset input[type='radio']:checked");
-    message += "<b>----------</b>\n";
-    checkedRoomType ? message += "<b>\u0422\u0438\u043F \u043F\u043E\u043C\u0435\u0449\u0435\u043D\u0438\u044F: ".concat(checkedRoomType.value, " </b>\n") : null;
-    areaField ? message += "<b>\u041F\u043B\u043E\u0449\u0430\u0434\u044C \u043F\u043E\u043C\u0435\u0449\u0435\u043D\u0438\u044F: ".concat(areaField.value, " </b>\n") : null;
-    checkedBudget ? message += "<b>\u0411\u044E\u0434\u0436\u0435\u0442: ".concat(checkedBudget.value, " </b>\n") : null;
-    checkedStyleRoom ? message += "<b>\u0421\u0442\u0438\u043B\u044C \u0438\u043D\u0442\u0435\u0440\u044C\u0435\u0440\u0430: ".concat(checkedStyleRoom.value, " </b>\n") : null;
-  }
+  message += "<b>\u0421\u043F\u043E\u0441\u043E\u0431 \u0441\u0432\u044F\u0437\u0438: ".concat(selectConnection || "Телефон", " </b>\n");
+  if (inputPhone.value) message += "<b>\u0422\u0435\u043B\u0435\u0444\u043E\u043D: ".concat(this.phone.value, " </b>\n");
+  if (inputEmail && inputEmail.value) message += "<b>\u041F\u043E\u0447\u0442\u0430: ".concat(this.email.value, " </b>\n");
   axios.post(URL_API, {
     chat_id: CHAT_ID,
     parse_mode: "html",
     text: message
   }).then(function () {
     console.log("Заявка отправлена");
-    formSuccess();
+    window.location.href = "thank-you-page.html";
   })["catch"](function (err) {
     console.warn(err);
-    formError();
+    alert("Ошибка отправки формы");
   })["finally"](function () {
-    console.log("Конец");
+    console.log("Конец отправки формы");
   });
   this.reset();
-
-  // Send Doc
-  var inputFile = quiz.querySelector(".add-layout input[type='file']").files[0];
-  if (inputFile) {
-    var formData = new FormData();
-    formData.append('chat_id', CHAT_ID);
-    formData.append('document', inputFile);
-    axios.post(URL_API_DOC, formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    }).then(function () {
-      console.log("Документ отправлен");
-    })["catch"](function (err) {
-      console.warn(err);
-    })["finally"](function () {
-      console.log("Конец");
-    });
-    this.reset();
-  }
 }
 ;
 "use strict";
@@ -334,10 +294,6 @@ var onPhoneInput = function onPhoneInput(evt) {
     if (inputNumbersValue[0] === "9") inputNumbersValue = "7" + inputNumbersValue;
     var firstSymbols = inputNumbersValue[0] === "8" ? "8" : "+7";
     formattedInputValue = firstSymbols + " ";
-    if (inputNumbersValue[0] === "8") {
-      //phoneInputs[0].setAttribute("pattern", ".{17,}");
-      console.log(phoneInputs[0].getAttribute("pattern"));
-    }
     if (inputNumbersValue.length > 1) {
       formattedInputValue += "(" + inputNumbersValue.slice(1, 4);
     }
@@ -483,10 +439,14 @@ if (popup) {
       btn.classList.add("js-active");
       if (btn.classList.contains("popup__connection-item--email")) {
         phoneInput.classList.add("hidden");
+        phoneInput.required = false;
         emailInput.classList.remove("hidden");
+        emailInput.required = true;
       } else {
         phoneInput.classList.remove("hidden");
+        phoneInput.required = true;
         emailInput.classList.add("hidden");
+        emailInput.required = false;
       }
     });
   });
