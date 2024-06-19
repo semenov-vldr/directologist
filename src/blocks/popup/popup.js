@@ -14,10 +14,14 @@ if (popup) {
 
       if (btn.classList.contains("popup__connection-item--email")) {
         phoneInput.classList.add("hidden");
+        phoneInput.required = false;
         emailInput.classList.remove("hidden");
+        emailInput.required = true;
       } else {
         phoneInput.classList.remove("hidden");
+        phoneInput.required = true;
         emailInput.classList.add("hidden");
+        emailInput.required = false;
       }
     });
   });

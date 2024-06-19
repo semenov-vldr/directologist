@@ -1,0 +1,26 @@
+.messageSuccess
+  min-height: 100vh
+  @extend .flex-center
+
+  &__container
+    max-width: 650px
+    @extend .flex-center
+    flex-direction: column
+    text-align: center
+    gap: 24px
+
+  &__title
+    @include fontSize(28, 48)
+
+  &__text
+    @include fontSize(22, 28)
+    font-weight: 300
+
+  &__buttons
+    flex-wrap: wrap
+    @extend .flex-center
+    gap: 32px
+    @include mobile
+      gap: 20px
+      & > .button
+        width: 100%

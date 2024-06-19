@@ -28,9 +28,9 @@ footer.footer
             h3.footer__feedback-title Еще остались вопросы?
             span.footer__feedback-subtitle Заполните форму, и я с Вами свяжусь в ближайшее время
 
-            form.footer__feedback-form.footer__form
-                input(type="text" placeholder="Ваше имя" maxlength="20")
-                input(type="text" placeholder="Ваш номер телефона" data-tel-input)
+            form.footer__feedback-form.footer__form.form
+                input(type="text" name="name" placeholder="Ваше имя" maxlength="20" required)
+                input(type="text" name="phone" placeholder="Ваш номер телефона" data-tel-input required)
                 button.button.button--accent(type="submit") Связаться с мной
 
         .footer__copyright

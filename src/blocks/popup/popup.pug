@@ -11,17 +11,12 @@
             button.popup__connection-item.js-active(type="button") Whatsapp
             button.popup__connection-item(type="button") Telegram
 
-        from.popup__form.popup-form
-            input.popup-form__input(type="text" name="name" placeholder="Ваше имя" maxlength="20")
-            input.popup-form__input.popup-form__input--phone(type="text" name="phone" placeholder="Ваш номер телефона" data-tel-input)
+        form.popup__form.popup-form.form
+            input.popup-form__input(type="text" name="name" placeholder="Ваше имя" maxlength="20" required)
+            input.popup-form__input.popup-form__input--phone(type="text" name="phone" placeholder="Ваш номер телефона" required data-tel-input)
             input.popup-form__input.popup-form__input--email.hidden(type="email" name="email" placeholder="Ваша почта")
             button.button.button--accent(type="submit") Оставить заявку
 
         .popup__contacts
             span Или напишите:
             include ../social/social
-
-
-
-
-

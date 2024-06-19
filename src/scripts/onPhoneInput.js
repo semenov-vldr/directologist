@@ -26,11 +26,6 @@ const onPhoneInput = (evt) => {
     let firstSymbols = (inputNumbersValue[0] === "8") ? "8" : "+7";
     formattedInputValue = firstSymbols + " ";
 
-    if (inputNumbersValue[0] === "8") {
-      //phoneInputs[0].setAttribute("pattern", ".{17,}");
-      console.log(phoneInputs[0].getAttribute("pattern"));
-    }
-
     if (inputNumbersValue.length > 1) {
       formattedInputValue += "(" + inputNumbersValue.slice(1, 4);
     }
