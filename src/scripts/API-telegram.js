@@ -34,7 +34,6 @@ function sendMessageTelegram (evt) {
   if (inputEmail && inputEmail.value) message += `<b>Почта: ${this.email.value} </b>\n`;
 
 
-
   axios.post(URL_API, {
     chat_id: CHAT_ID,
     parse_mode: "html",
@@ -52,6 +51,5 @@ function sendMessageTelegram (evt) {
       console.log("Конец отправки формы");
     });
   this.reset();
-
 
 };

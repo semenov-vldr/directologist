@@ -3,18 +3,16 @@ const reviewsSlider = document.querySelector(".reviews__slider");
 if (reviewsSlider) {
 
   let mySwiper = new Swiper(reviewsSlider, {
-    // pagination: {
-    //   el: '.swiper-pagination',
-    //   clickable: true,
-    // },
-    // navigation: {
-    //   nextEl: '.slider-nav__next',
-    //   prevEl: '.slider-nav__prev',
-    // },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
 
-
-    grabCursor: true,
-    slidesPerView: 3,
+    slidesPerView: "auto",
     loop: true,
     effect: "coverflow",
     centeredSlides: true,
@@ -22,23 +20,23 @@ if (reviewsSlider) {
 
     coverflowEffect: {
       rotate: 0,
-      stretch: 160,
-      depth: 30,
-      modifier: 4.5,
+      // stretch: 90,
+      // depth: 10,
+      // modifier: 5.5,
       slideShadows: false,
     },
 
     // Ширина экрана
     breakpoints: {
-      // 320: {
-      //   slidesPerView: 1.2,
-      //   spaceBetween: 16,
-      // },
+      320: {
+        stretch: 90,
+        depth: 10,
+        modifier: 5.5,
+      },
 
-      // 768: {
-      //   slidesPerView: 1.5,
-      //   spaceBetween: 24,
-      // },
+      480: {
+
+      },
     }
 
   });

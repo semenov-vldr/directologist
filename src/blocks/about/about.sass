@@ -1,10 +1,11 @@
 .about
-  border-radius: 20px
 
-  &__container
-    padding: 32px 40px
+  &__content
+    padding: 24px 40px
+    border-radius: 10px
     @include mobile
-      border-radius: 10px
+      padding: 20px 16px
+
 
   &__inner
     display: grid
@@ -43,12 +44,13 @@
 
   &__video
     position: relative
-    height: 420px
+    //height: 420px
     overflow: hidden
+    aspect-ratio: 1 / 1
     @include mobile
       height: auto
       aspect-ratio: 1 / 1
-    video
+    img
       position: absolute
       width: 100%
       height: 100%
