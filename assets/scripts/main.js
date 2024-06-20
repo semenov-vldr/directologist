@@ -337,29 +337,26 @@ phoneInputs.forEach(function (input) {
   input.addEventListener("keydown", onPhoneKeyDown);
   input.addEventListener("paste", onPhonePaste);
 });
+// const videoAbout = document.querySelector('.play-button');
+//
+// function playShow (btnPlay, video) {
+//   video.play();
+//   btnPlay.classList.add('visually-hidden');
+// };
+//
+// function pauseShow (btnPlay, video) {
+//   video.pause();
+//   btnPlay.classList.remove('visually-hidden');
+// };
+//
+// if (videoAbout) {
+//     const parent = videoAbout.parentNode;
+//     const videoContent = parent.querySelector('video');
+//     videoAbout.addEventListener('click', () => playShow(videoAbout, videoContent));
+//     videoContent.addEventListener('click', () => pauseShow(videoAbout, videoContent));
+// }
+//
 "use strict";
-
-var videoAbout = document.querySelector('.play-button');
-function playShow(btnPlay, video) {
-  video.play();
-  btnPlay.classList.add('visually-hidden');
-}
-;
-function pauseShow(btnPlay, video) {
-  video.pause();
-  btnPlay.classList.remove('visually-hidden');
-}
-;
-if (videoAbout) {
-  var parent = videoAbout.parentNode;
-  var videoContent = parent.querySelector('video');
-  videoAbout.addEventListener('click', function () {
-    return playShow(videoAbout, videoContent);
-  });
-  videoContent.addEventListener('click', function () {
-    return pauseShow(videoAbout, videoContent);
-  });
-}
 "use strict";
 
 var faq = document.getElementById("faq");
@@ -472,39 +469,34 @@ if (popup) {
 var reviewsSlider = document.querySelector(".reviews__slider");
 if (reviewsSlider) {
   var mySwiper = new Swiper(reviewsSlider, {
-    // pagination: {
-    //   el: '.swiper-pagination',
-    //   clickable: true,
-    // },
-    // navigation: {
-    //   nextEl: '.slider-nav__next',
-    //   prevEl: '.slider-nav__prev',
-    // },
-
-    grabCursor: true,
-    slidesPerView: 3,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    slidesPerView: "auto",
     loop: true,
     effect: "coverflow",
     centeredSlides: true,
     initialSlide: 1,
     coverflowEffect: {
       rotate: 0,
-      stretch: 160,
-      depth: 30,
-      modifier: 4.5,
+      // stretch: 90,
+      // depth: 10,
+      // modifier: 5.5,
       slideShadows: false
     },
     // Ширина экрана
     breakpoints: {
-      // 320: {
-      //   slidesPerView: 1.2,
-      //   spaceBetween: 16,
-      // },
-
-      // 768: {
-      //   slidesPerView: 1.5,
-      //   spaceBetween: 24,
-      // },
+      320: {
+        stretch: 90,
+        depth: 10,
+        modifier: 5.5
+      },
+      480: {}
     }
   });
 }
