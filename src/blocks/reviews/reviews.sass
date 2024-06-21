@@ -11,6 +11,7 @@
     border-radius: 10px
     box-shadow: rgba(255, 255, 255, 1) 0 0 5px 0
     filter: blur(5px)
+    user-select: none
     @include tablet
       width: 270px
     @include mobile
@@ -63,8 +64,12 @@
     border-radius: 50%
     background-color: #fff
     color: #000
+    user-select: none
     @include tablet
       &, &::after
         transform: scale(0.7)
     @include mobile
       display: none
+    &:hover
+      background-color: $accent
+      color: $white

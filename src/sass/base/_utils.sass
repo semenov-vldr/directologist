@@ -1,18 +1,6 @@
 .hidden
   display: none !important
 
-.visually-hidden
-  position: absolute
-  width: 1px
-  height: 1px
-  margin: -1px
-  border: 0
-  padding: 0
-  white-space: nowrap
-  clip-path: inset(100%)
-  clip: rect(0 0 0 0)
-  overflow: hidden
-
 section
   scroll-margin: 130px
   @media (max-width: $width-mobile)
@@ -84,46 +72,13 @@ section
 .fw-700
   font-weight: 700
 
-
 .bg-cell
   position: relative
-  background-image: url("../img/bg-cell.jpeg")
+  background-image: url("../img/bg-hero.png")
   background-size: cover
   background-position: center
-  overflow: hidden
-  mix-blend-mode: luminosity
-  &::after
-    content: ""
-    position: absolute
-    background-color: rgba($bg, 0.85)
-    width: 100%
-    height: 100%
-    left: 0
-    top: 0
-  & > *
-    position: relative
-    z-index: 1
-
 
 
 .hover-link:hover
   transition: $transition
   color: #FB3052
-
-
-.scroll-margin
-  scroll-margin: 120px
-  @media (max-width: $width-mobile)
-    scroll-margin: 70px
-
-.desktop-hidden
-  @media (min-width: $width-mobile)
-    display: none
-
-.mobile-hidden
-  @media (max-width: $width-mobile)
-    display: none
-
-.tablet-hidden
-  @media (min-width: $width-tablet)
-    display: none
