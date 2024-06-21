@@ -359,20 +359,6 @@ phoneInputs.forEach(function (input) {
 "use strict";
 "use strict";
 
-var faq = document.getElementById("faq");
-if (faq) {
-  var accordionItems = faq.querySelectorAll('.faq__item'); // список элементов аккордиона
-  var toggleClass = function toggleClass(item) {
-    return item.classList.toggle('js-faq-active');
-  };
-  accordionItems.forEach(function (accordionItem) {
-    accordionItem.addEventListener('click', function () {
-      return toggleClass(accordionItem);
-    });
-  });
-}
-"use strict";
-
 function mobileNav() {
   var header = document.querySelector("header.header");
   var burger = header.querySelector(".header__burger");
@@ -402,19 +388,6 @@ function mobileNav() {
   });
 }
 mobileNav();
-"use strict";
-
-function hideLoader() {
-  var loader = document.getElementById('loader');
-  if (loader) {
-    loader.classList.add('hide');
-    setTimeout(function () {
-      loader.remove();
-    }, 500);
-  }
-}
-;
-window.addEventListener('load', hideLoader);
 "use strict";
 
 var popup = document.querySelector("#popup");
