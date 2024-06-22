@@ -1,0 +1,103 @@
+.blog
+  padding: 70px 0 32px
+  min-height: 100vh
+  @include mobile
+    padding-top: 32px
+
+  &__container
+    display: grid
+    grid-template-columns: 0.65fr 0.35fr
+    grid-gap: 32px
+    justify-content: space-between
+    @include tablet
+      grid-template-columns: 1fr
+    @include mobile
+      text-align: center
+
+  &__content
+    display: flex
+    flex-direction: column
+    gap: 20px
+
+  &__title
+    font-family: "Nextart", sans-serif
+    font-weight: 900
+    text-transform: uppercase
+    @include fontSize(28, 38)
+    text-wrap: balance
+    letter-spacing: 0.01em
+    a
+      display: inline-flex
+      align-items: center
+      @include mobile
+        display: none
+
+  &__subtitle
+    font-family: "FordAntenna", sans-serif
+    font-weight: 100
+    color: rgba($white, 0.6)
+    text-wrap: balance
+    @include fontSize(20, 30)
+
+  &__img
+    margin-left: auto
+    height: 100%
+    @include tablet
+      margin: 0 auto
+
+  &__actions
+    margin-top: 10px
+    display: flex
+    gap: 32px
+    height: fit-content
+    .button
+      min-height: 90px
+      text-transform: uppercase
+      font-weight: 700
+      font-family: "Nextart", sans-serif
+    img
+      height: 90px
+      width: auto
+      border-radius: 6px
+    @include mobile
+      img
+        display: none
+      & > *
+        width: 100%
+
+  &__advantages
+    font-family: "FordAntenna", sans-serif
+    font-weight: 500
+    display: flex
+    flex-direction: column
+    gap: 24px
+    @include mobile
+      margin-top: 12px
+    li
+      position: relative
+      display: flex
+      gap: 12px
+      font-weight: 500
+      @include fontSize(20, 25)
+      @include mobile
+        flex-direction: column
+        align-items: center
+      &::before
+        content: ""
+        flex: 0 0 30px
+        display: inline-block
+        background-image: url("../img/icons/blog-icon.svg")
+        width: 30px
+        height: 30px
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+        @include mobile
+          width: 20px
+          height: 20px
+          flex: 0 0 20px
+
+
+
+
+
